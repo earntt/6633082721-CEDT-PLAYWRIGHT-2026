@@ -15,8 +15,11 @@ test.describe('EX02-assertion.spec.ts', async () => {
 
 		// Act Step: Click the "Login" button
 		await page.getByRole('button', { name: 'Login' }).click()
-		await page.waitForLoadState()
-		await expect(page.locator('h2')).toHaveText('Make Appointment')
+
+		// Wait for the URL to change to the appointment page, which is a reliable indicator of a successful login and navigation.
+		await page.waitForURL(
+			'https://katalon-demo-cura.herokuapp.com/#appointment'
+		)
 	})
 
 	test('Verify that make appointment page display “Make Appointment” in h2 @happy', async ({
