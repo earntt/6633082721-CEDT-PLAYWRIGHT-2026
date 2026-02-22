@@ -12,9 +12,7 @@ test.describe('EX01-arrange-act-assert.spec.ts', async () => {
 
 	test('Login passed with valid user @happy', async ({ page }) => {
 		// Arrange Step: Fill in the username and password fields with valid credentials
-		// await page.getByLabel('Username').click()
 		await page.getByLabel('Username').fill(users.validUser.username)
-		// await page.getByLabel('Password').click()
 		await page.getByLabel('Password').fill(users.validUser.password)
 
 		// Act Step: Click the "Login" button
@@ -28,9 +26,7 @@ test.describe('EX01-arrange-act-assert.spec.ts', async () => {
 
 	test('Login failed with invalid password @negative', async ({ page }) => {
 		// Arrange Step: Fill in the username and password fields with invalid credentials
-		// await page.getByLabel('Username').click()
 		await page.getByLabel('Username').fill(users.validUser.username)
-		// await page.getByLabel('Password').click()
 		await page.getByLabel('Password').fill(users.invalidUser.password)
 
 		// Act Step: Click the "Login" button
@@ -46,9 +42,7 @@ test.describe('EX01-arrange-act-assert.spec.ts', async () => {
 
 	test('Login failed with invalid username @negative', async ({ page }) => {
 		// Arrange Step: Fill in the username and password fields with invalid credentials
-		// await page.getByLabel('Username').click()
 		await page.getByLabel('Username').fill(users.invalidUser.username)
-		// await page.getByLabel('Password').click()
 		await page.getByLabel('Password').fill(users.validUser.password)
 
 		// Act Step: Click the "Login" button
