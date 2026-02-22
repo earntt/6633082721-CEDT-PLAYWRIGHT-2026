@@ -16,6 +16,7 @@ test.describe('EX02-assertion.spec.ts', async () => {
 		// Act Step: Click the "Login" button
 		await page.getByRole('button', { name: 'Login' }).click()
 		await page.waitForLoadState()
+		await expect(page.locator('h2')).toHaveText('Make Appointment')
 	})
 
 	test('Verify that make appointment page display “Make Appointment” in h2 @happy', async ({
