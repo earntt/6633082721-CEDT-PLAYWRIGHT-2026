@@ -13,13 +13,11 @@ test.describe('EX02-assertion.spec.ts', async () => {
 		await page.getByLabel('Username').fill(users.validUser.username)
 		await page.getByLabel('Password').fill(users.validUser.password)
 
-		// Act Step: Click the "Login" button
-		await page.getByRole('button', { name: 'Login' }).click()
-
-		// Wait for the URL to change to the appointment page, which is a reliable indicator of a successful login and navigation.
-		await page.waitForURL(
-			'https://katalon-demo-cura.herokuapp.com/#appointment'
-		)
+		// Act and Wait Step: Click the "Login" button and wait for the navigation to the appointment page to complete.
+		await Promise.all([
+			page.waitForURL('**/#appointment'),
+			page.getByRole('button', { name: 'Login' }).click(),
+		])
 	})
 
 	test('Verify that make appointment page display “Make Appointment” in h2 @happy', async ({
