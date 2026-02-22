@@ -10,14 +10,18 @@ test.describe('EX02-assertion.spec.ts', async () => {
 		await page.getByRole('link', { name: 'Make Appointment' }).click()
 
 		// Arrange Step: Fill in the username and password fields with valid credentials
+		await page.getByLabel('Username').click()
 		await page.getByLabel('Username').fill(users.validUser.username)
+		await page.getByLabel('Password').click()
 		await page.getByLabel('Password').fill(users.validUser.password)
 
-		// Act and Wait Step: Click the "Login" button and wait for the navigation to the appointment page to complete.
-		await Promise.all([
-			page.waitForURL('**/#appointment'),
-			page.getByRole('button', { name: 'Login' }).click(),
-		])
+		await page.getByRole('button', { name: 'Login' }).click()
+		await page.waitForURL('**/#appointment', {
+			timeout: 10000,
+		})
+		await expect(
+			page.getByRole('heading', { name: 'Make Appointment' })
+		).toBeVisible()
 	})
 
 	test('Verify that make appointment page display “Make Appointment” in h2 @happy', async ({
