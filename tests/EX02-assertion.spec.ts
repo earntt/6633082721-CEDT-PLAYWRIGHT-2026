@@ -128,7 +128,10 @@ test.describe('EX02-assertion.spec.ts', async () => {
 		)
 
 		const datepickerDayCells = datepickerTable.locator('td.day')
-		await datepickerDayCells.getByText(new Date().getDate().toString()).click()
+		await datepickerDayCells
+			.getByText(new Date().getDate().toString(), { exact: true })
+			.first()
+			.click()
 
 		const currentFullDate = new Date().toLocaleDateString('en-GB', {
 			// Get current date in DD-MM-YYYY format
