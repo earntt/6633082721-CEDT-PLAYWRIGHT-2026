@@ -1,0 +1,9 @@
+{
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"files.autoSave": "onFocusChange",
+	"livePreview.defaultPreviewPath": "/playwright-report/index.html",
+	"chat.disableAIFeatures": false,
+	"workbench.settings.showAISearchToggle": false,
+	"editor.inlineSuggest.edits.showCollapsed": false
+}
