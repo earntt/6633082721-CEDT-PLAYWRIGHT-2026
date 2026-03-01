@@ -1,0 +1,16 @@
+{
+	"facilities": {
+		"tokyo": "Tokyo CURA Healthcare Center",
+		"hongkong": "Hongkong CURA Healthcare Center",
+		"seoul": "Seoul CURA Healthcare Center"
+	},
+	"programs": {
+		"medicare": "Medicare",
+		"medicaid": "Medicaid",
+		"none": "None"
+	},
+	"readmission": {
+		"true": "Yes",
+		"false": "No"
+	}
+}
