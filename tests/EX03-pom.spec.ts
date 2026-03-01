@@ -8,7 +8,6 @@ import {
 
 test.describe('EX03-pom.spec.ts', () => {
 	const URL = process.env.URL || ''
-
 	const currentDate = new Date().toLocaleDateString('en-GB', {
 		// Get current date in DD-MM-YYYY format
 		timeZone: 'Asia/Bangkok',
@@ -16,7 +15,6 @@ test.describe('EX03-pom.spec.ts', () => {
 		month: '2-digit',
 		year: 'numeric',
 	})
-
 	const commentText = 'Testing appointment booking using page objects'
 
 	test.beforeEach(async ({ page, indexPage, loginPage }) => {
@@ -26,7 +24,7 @@ test.describe('EX03-pom.spec.ts', () => {
 			users.validUser.username,
 			users.validUser.password
 		)
-		await page.waitForLoadState('networkidle')
+		await page.waitForLoadState('networkidle', { timeout: 10000 })
 	})
 
 	test('Make appointment using page objects @happy', async ({
@@ -41,7 +39,7 @@ test.describe('EX03-pom.spec.ts', () => {
 			visitDate: currentDate,
 			comment: commentText,
 		})
-		await page.waitForLoadState('networkidle')
+		await page.waitForLoadState('networkidle', { timeout: 10000 })
 
 		// verify booking succeeded
 		await expect(confirmationPage.getHeading).toBeVisible()
